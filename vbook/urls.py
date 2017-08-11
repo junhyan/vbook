@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from views import *
+import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^get_all_books/$',GetAllBooks.as_view()),
     url(r'^book_management/(?P<book_id>\d+)/$',BookManagement.as_view()),
+    url(r'^$',index),
 ]

@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xhEditor demo8 : Ajax文件上传</title>
+<script type="text/javascript" src="{%static 'editor/jquery/jquery-1.4.4.min.js' %}"></script>
+<script type="text/javascript" src="{%static 'editor/xheditor-1.2.2.min.js' %}"></script>
+<script type="text/javascript" src="{%static 'editor/xheditor_lang/zh-cn.js' %}"></script>
+<script type="text/javascript">
+$(pageInit);
+function pageInit()
+{
+	$('#elm1').xheditor({upLinkUrl:"upload.php",upLinkExt:"zip,rar,txt",upImgUrl:"upload.php",upImgExt:"jpg,jpeg,gif,png",upFlashUrl:"upload.php",upFlashExt:"swf",upMediaUrl:"upload.php",upMediaExt:"wmv,avi,wma,mp3,mid"});
+}
+function insertUpload(arrMsg)
+{console.log(arrMsg)
+	var i,msg;
+	for(i=0;i<arrMsg.length;i++)
+	{
+		msg=arrMsg[i];
+		$("#uploadList").append('<option value="'+msg.id+'">'+msg.localname+'</option>');
+	}
+}
+function submitForm(){$('#frmDemo').submit();}
+</script>
+</head>
+<body>
+	<textarea id="elm1" name="elm1" rows="12" cols="80" style="width: 80%">
+	</textarea><br /><br />
+</body>
+</html>

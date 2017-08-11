@@ -6,7 +6,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status 
 import time
-
+from django.shortcuts import render
+from django.template.loader import render_to_string
 
 class GetAllBooks(APIView):
     def get(self, request, format=None):
@@ -44,3 +45,20 @@ class BookManagement(APIView):
         book = self.get_book(book_id)
         book.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+"""
+class FileUploadView(APIView):
+    parser_classes = (FileUploadParser,)
+
+    def post(self, request, filename, format=None):
+        file_obj = request.data['filedata']
+        destination = open('./resource/' + filename, 'wb+')
+        for chunk in up_file.chunks():
+            destination.write(chunk)
+            destination.close()
+        return Response(status=204)
+        """
+"""============================================"""
+#view web app        
+def index(request):
+    static_html = 'edit.html'
+    return render(request, static_html)
