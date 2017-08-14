@@ -57,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-                '/home/junhan/code/mygit/vbook/vbook/webapp'
+                '/home/junhan/code/mygit/vbook/vbook/static/webapp'
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
